@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\admin",
+    "\\admin\\include",
+    "\\admin\\include\\function",
+    "\\barangay",
+    "\\barangay\\include",
+    "\\barangay\\include\\certificate",
+    "\\barangay\\include\\login-function",
+    "\\barangay\\include\\print_function",
+    "\\database",
+    "\\include"
+  ],
+  "PreviewInSolutionExplorer": false
+}

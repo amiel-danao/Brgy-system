@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+
+html body{
+	height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: inherit;
+  background-color: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav li a{
+	font-size: 1rem;
+	margin-left: 15px;
+	margin-right: 15px;
+  transition: 500ms ease;
+  text-decoration: none!important;
+}
+
+.nav li:hover{
+  background-color: blue;
+}
+.nav a:hover{
+  color: #fff;
+  display: block;
+ 
+}
+
+.wrapper .headers .contents img{
+    width: 100%;
+}
+/* MApping*/
+ #maps {
+  height: 100%;
+  width: 100%;
+  margin-rig
+  margin-left: 0;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  padding:0;
+  }
+
+.google{
+    height: 500px;
+    padding:0;
+    margin:0;
+}
+      /* Optional: Makes the sample page fill the window. */
+/* End MApping*/
+
+.Content{
+  width: 100%;
+  height: 500px;
+}
+
+.h-img{
+  height: 130px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+/*  Footer */
+
+/*  Footer End */
+
+/* history content*/
+.history{
+  background-color: #fff;
+
+}
+.history .header h2{
+  padding-top: 20px;
+  margin-left: 20px;
+}
+.history .contents p{
+  font-size: 18px;
+  font-family: sans-serif;
+  text-align: justify;
+  padding: 10px;
+  text-indent: 50px;
+}
+/* End history content*/
+
+
+/* Geograp content*/
+
+.geography{
+  background-color: #fff;
+}
+
+.g-header h5{
+  margin-left: 20px;
+}
+
+.geography .geography-header h2{
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+.geography .geography-contents p{
+  font-size: 18px;
+  font-family: sans-serif;
+  text-align: justify;
+  padding: 10px;
+  text-indent: 50px;
+}
+/* EndGeography content*/
+
+
+
+
+/* News */
+.articles {
+  height: 100%!important;
+}
+.article-head .container{
+  background-color: white;
+}
+
+.article{
+ /* width: 900px;*/
+ /* margin-top: 5px;*/
+  /*margin-bottom: 5px;*/
+  /*border: 2px solid gray;*/
+  padding: 5px;
+  /*margin-bottom:5px;*/
+}
+
+ .article-body .content{
+  text-align:justify;
+  text-indent: 50px;
+}
+
+.article .article-body .wrapper-img img{
+  width: 500px;
+  padding-right: 15px;
+  /*padding-bottom: 5px;*/
+}
+
+/*ENd News*/
+
+/* Organizational*/
+.org-body{
+  background-color: #fff;
+}
+
+.organizational{
+  margin-bottom: 10px;
+}
+
+/* End of Organizational*/

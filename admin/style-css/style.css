@@ -1,0 +1,167 @@
+body{
+	font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+.body{
+	border-radius: 15px;
+	padding: 15px;
+	margin-top: 50px;
+	width: 320px;
+	height: 400px;
+	background-color: white;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+.formbody h2{
+	text-align: center;
+	color: gray;
+}
+
+@media only screen and (max-width: 320px){
+   .formbody{
+  	width: 250px!important;
+  }
+  .body{
+	width: 280px!important;
+	margin-top: 30px;
+	margin-bottom: 10px;
+  }
+}
+
+
+/*Sidebar 2 */
+.sidemenu1{
+  background-color: #16a085;
+  margin: 0;
+  padding: 0;
+}
+
+.components .sidelink a{
+  list-style-type: none;
+  color: #fff;
+  margin-left: 25px;
+  text-decoration: none!important;
+  font-size: 19px;
+}
+
+.sidemenus .components li{
+  padding: 5px;
+}
+
+.components .sidelink li{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-left: 0px;
+  margin-right: 0px;
+
+}
+
+.sidelink .collapse a {
+  padding-left: 0px;
+}
+
+.sidemenu2 ul{
+  list-style-type: none;
+  color: #fff;
+  padding: 0px;
+}
+.sidemenu2 .components li{
+  margin-left: 0px;
+  font-size: 20px;
+	  /* border-top: 1px solid rgb(255,255,255, 20); */
+  margin: 0px;
+}
+/* .sidemenu2{
+   border-bottom: 1px solid rgb(255,255,255, 20);
+} */
+.sidemenu2 li{
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+.components .sidelink .collapse li:hover{
+	outline: none;
+  background-color: #1abc9c;
+}
+
+.components .sidelink .collapse li:focus{
+	outline: none;
+  background: #1abc9c;
+}
+/* End of Sidebar 2*/
+
+
+
+
+
+
+
+
+
+/* ADMIN*/
+.sidebarmenu{
+  background-color: #16a085;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebarmenu .menu li{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* border-bottom: 1px solid #1abc9c;
+  border-top: 1px solid #1abc9c; */
+}
+
+.sidebarmenu .menu ul {
+  list-style-type: none;
+  color: #fff;
+  margin: 0px;
+}
+
+.sidebarmenu .menu a {
+  list-style-type: none;
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 0px;
+  width: 100%;
+}
+
+.sidebarmenu .menu  li a {
+  text-decoration: none!important;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+/* .sidebarmenu .menu .child li{
+  border-bottom: 1px solid #16a085;
+} */
+.sidebarmenu .menu .child li a {
+  padding-left: 0px;
+  transition: all 500ms linear;
+}
+.menu ul{
+  display: none;
+}
+
+.menu li.tap ul{
+  display: block;
+  padding-left: 0px;
+  margin: 0px;
+  transition: all 500ms linear;
+}
+
+.navbar .menu .child li:hover{
+  background: #1abc9c;
+}
+.sidebarmenus .sub-arrow:after{
+  content: '\203A';
+  float: right;
+  margin-right: 0px;
+  transform: rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  -moz-transform: rotate(90deg);
+}
+/*END ADMIN*/
