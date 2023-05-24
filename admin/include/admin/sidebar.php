@@ -9,7 +9,7 @@
             <!--    <img src="logoimg/<?php// echo $brgycode ?>.png" class="img-fluid"  alt="Admin" style="height: 110px; width: 200px;">-->
             <!--</div>-->
                 <div class="account2">
-                    <h4> WELCOME SECRETARY </h4>
+                    <h4> WELCOME ADMIN </h4>
                     <h5><?php echo $brgyname ?></h5>
                 </div>
     <nav class="navbar-sidebar2">
@@ -38,7 +38,7 @@
                 </ul>
             </li> -->
     <li>
-                <a href="profile.php">
+                <a href="dashboard.php">
                    Home</a>
             </li>
              <li>

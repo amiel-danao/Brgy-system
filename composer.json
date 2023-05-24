@@ -1,0 +1,11 @@
+{
+  "name": "administrator/brgy",
+  "autoload": {
+    "psr-4": {
+      "Administrator\\Brgy\\": "src/"
+    }
+  },
+  "require": {}
+
+
+}
