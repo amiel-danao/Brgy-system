@@ -67,25 +67,20 @@ include "include/admin/header.php";
                         </div>  
                     </div>
                 <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-6">
                             <div style="display: flex; justify-content: space-between">                        
-                                <canvas id="chart" style="width: 400px; height: 300px;"></canvas>
-                                <!-- <canvas id="chart2" style="width: 400px; height: 300px;"></canvas> -->
+                                <canvas id="chart1" style="width: 200px; height: 150px;"></canvas>
                             </div>
-                            <!-- <div style="display: flex; justify-content: space-between">
-                                <canvas id="chart3" style="width: 400px; height: 300px;"></canvas>
-                                <canvas id="chart4" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                        <div class="col-6">
+                            <div style="display: flex; justify-content: space-between">                        
+                                <canvas id="chart2" style="width: 200px; height: 150px;"></canvas>
                             </div>
-                            <div style="display: flex; justify-content: space-between">
-                                <canvas id="chart5" style="width: 400px; height: 300px;"></canvas>
-                                <canvas id="chart6" style="width: 400px; height: 300px;"></canvas>
-                            </div>
-                            <div style="display: flex; justify-content: space-between">
-                                <canvas id="chart7" style="width: 400px; height: 300px;"></canvas>
-                                <canvas id="chart8" style="width: 400px; height: 300px;"></canvas>
-                            </div> -->
                         </div>
                     </div>
+                    <!-- <div class="row">
+                        
+                    </div> -->
 
 					<!-- END DATA TABLE -->
 					<?php include "include/admin/footer2.php"; ?>
@@ -103,9 +98,9 @@ include "include/admin/header.php";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <script>
-        // Create the chart
-        const ctx = document.getElementById('chart').getContext('2d');
-        const chart = new Chart(ctx, {
+        // Create the first chart
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: [],
@@ -129,8 +124,34 @@ include "include/admin/header.php";
             }
         });
 
-        // Fetch data using AJAX
-        function fetchData(brgyCode = '') {
+        // Create the second chart
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: []
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'BDF Chart',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        // Fetch data for a specific chart
+        function fetchData(chart, url) {
             const xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
@@ -143,7 +164,7 @@ include "include/admin/header.php";
                     chart.update();
                 }
             };
-            xhr.open('GET', `charts/fetchBCPC.php?brgyCode=${brgyCode}`, true);
+            xhr.open('GET', url, true);
             xhr.send();
         }
 
@@ -166,7 +187,8 @@ include "include/admin/header.php";
 
                     if(brgyCodes.length > 0){
                         
-                        fetchData(brgyCodes[0]);
+                        fetchData(chart1, `charts/fetchBCPC.php?brgyCode=${brgyCodes[0]}`);
+                        fetchData(chart2, `charts/fetchBDF.php?brgyCode=${brgyCodes[0]}`);
                     }
                 }
             };
@@ -177,12 +199,20 @@ include "include/admin/header.php";
         // Event listener for the filter button
         document.getElementById('filterButton').addEventListener('click', function () {
             const brgyCode = document.getElementById('brgyCodeSelect').value;
-            fetchData(brgyCode);
+            fetchData(chart1, `charts/fetchBCPC.php?brgyCode=${brgyCode}`);
+            fetchData(chart2, `charts/fetchBDF.php?brgyCode=${brgyCode}`);
         });
 
         // Load the initial data
         loadBrgyCodes();
-        fetchData();
+
+        // Load data for the first chart
+        // fetchData(chart1, 'charts/fetchBCPC.php'); // Replace 'fetchData.php' with the actual URL
+
+        // // Load data for the second chart after a delay (adjust the delay time as needed)
+        // setTimeout(() => {
+        //     fetchData(chart2, 'charts/fetchBDF.php'); // Replace 'fetchSecondData.php' with the actual URL
+        // }, 2000); // Example: Load the second dataset after 2 seconds
     </script>
 <!-- Jquery JS-->
 <?php include "include/admin/footer.php"; ?>

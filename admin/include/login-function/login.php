@@ -44,7 +44,7 @@ if(isset($_POST['adminbtn']))
 					  		// echo "<script>window.location.href = 'barangay_residents.php'; </script>";
 
 				  		}
-					  header("Location: account.php");
+					  header("Location: dashboard.php");
 
 				  	}
 			  	else
