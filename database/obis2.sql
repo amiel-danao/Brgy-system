@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 05, 2019 at 06:07 AM
--- Server version: 10.3.14-MariaDB
--- PHP Version: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2023 at 03:56 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id8786959_obis_online_information_system`
+-- Database: `obis2`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +41,7 @@ CREATE TABLE `abkd_tbl` (
   `remarks` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `abkd_tbl`
@@ -77,14 +76,14 @@ CREATE TABLE `admin_tbl` (
   `username` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin_tbl`
 --
 
 INSERT INTO `admin_tbl` (`id`, `first_name`, `last_name`, `middle_name`, `email`, `username`, `password`, `token`) VALUES
-(1, 'Ericson', 'Limpasan', 'M', 'OBISDILG@gmail.com', 'bsit_bsit_4A', '$2y$10$ViYQdZ9ueBt1Fy3up0EbCu/tvDxIsZK0USK0vaNENFBzUe1RhLdmu', '');
+(1, 'Ericson', 'Limpasan', 'M', 'OBISDILG@gmail.com', 'bsit_bsit_4A', '$2a$12$qSRdqaEN2ex.jDD1jnyi1.gWhsSDERy4Wo50UdDfy.QQmdsLhp0Ny', '');
 
 -- --------------------------------------------------------
 
@@ -96,7 +95,7 @@ CREATE TABLE `barangay_goal_tbl` (
   `id` int(255) NOT NULL,
   `goal` text NOT NULL,
   `bcode` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `barangay_goal_tbl`
@@ -123,7 +122,7 @@ CREATE TABLE `barangay_mission_tbl` (
   `id` int(255) NOT NULL,
   `mission` text NOT NULL,
   `bcode` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `barangay_mission_tbl`
@@ -163,7 +162,7 @@ CREATE TABLE `barangay_vision_tbl` (
   `id` int(255) NOT NULL,
   `vision` text NOT NULL,
   `bcode` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `barangay_vision_tbl`
@@ -211,7 +210,7 @@ CREATE TABLE `bcpc_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bcpc_tbl`
@@ -245,7 +244,7 @@ CREATE TABLE `bdf_tbl` (
   `climatemitigation` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdf_tbl`
@@ -293,7 +292,7 @@ CREATE TABLE `bdrrmf_a_tbl` (
   `totalbudgetallocation` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdrrmf_a_tbl`
@@ -336,7 +335,7 @@ CREATE TABLE `bdrrmf_b_tbl` (
   `totalbudgetallocation` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdrrmf_b_tbl`
@@ -371,7 +370,7 @@ CREATE TABLE `brgy_bclearance_tbl` (
   `orno` int(100) NOT NULL,
   `paid` decimal(10,2) NOT NULL,
   `bcode` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_bclearance_tbl`
@@ -396,7 +395,7 @@ CREATE TABLE `brgy_bpermit_tbl` (
   `business` varchar(255) NOT NULL,
   `type_of_certificate` varchar(255) NOT NULL,
   `bcode` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_bpermit_tbl`
@@ -433,7 +432,7 @@ CREATE TABLE `brgy_bucal1_tbl` (
   `barangay` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -445,7 +444,7 @@ CREATE TABLE `brgy_certificate_tbl` (
   `id` int(100) NOT NULL,
   `residents_id` int(100) NOT NULL,
   `date` date NOT NULL,
-  `type_of_certificate` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `type_of_certificate` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -470,7 +469,7 @@ CREATE TABLE `brgy_code_tbl` (
   `brgy_name` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_code_tbl`
@@ -519,7 +518,7 @@ CREATE TABLE `brgy_indigency_tbl` (
   `purpose` varchar(255) NOT NULL,
   `type_of_certificate` varchar(255) NOT NULL,
   `bcode` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -532,7 +531,7 @@ CREATE TABLE `brgy_info_tbl` (
   `message` text NOT NULL,
   `barangay_code` varchar(100) NOT NULL,
   `type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_info_tbl`
@@ -624,7 +623,7 @@ CREATE TABLE `brgy_official_tbl` (
   `date_elected` date NOT NULL,
   `picture` varchar(100) NOT NULL,
   `post_validation` varchar(20) NOT NULL DEFAULT 'Not Validate'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_official_tbl`
@@ -944,7 +943,7 @@ CREATE TABLE `cms_table` (
   `content1` text NOT NULL,
   `content2` text NOT NULL,
   `image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cms_table`
@@ -975,7 +974,7 @@ CREATE TABLE `gad_a_tbl` (
   `gadexpenditure` int(11) NOT NULL,
   `remarks` int(11) NOT NULL,
   `year` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -1004,7 +1003,7 @@ CREATE TABLE `kp_tbl_c1` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kp_tbl_c1`
@@ -1050,7 +1049,7 @@ CREATE TABLE `kp_tbl_c2` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kp_tbl_c2`
@@ -1079,7 +1078,7 @@ CREATE TABLE `maragondon_official_tbl` (
   `full_name` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `maragondon_official_tbl`
@@ -1117,7 +1116,7 @@ CREATE TABLE `monthly_p1_tbl` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p1_tbl`
@@ -1191,7 +1190,7 @@ CREATE TABLE `monthly_p2_tbl` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p2_tbl`
@@ -1238,7 +1237,7 @@ CREATE TABLE `monthly_p3_tbl` (
   `monthly` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p3_tbl`
@@ -1289,7 +1288,7 @@ CREATE TABLE `pdp_tbl` (
   `amount` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pdp_tbl`
@@ -1323,7 +1322,7 @@ CREATE TABLE `pops_a_tbl` (
   `title` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pops_a_tbl`
@@ -1368,7 +1367,7 @@ CREATE TABLE `pops_b_tbl` (
   `title` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pops_b_tbl`
@@ -1398,7 +1397,7 @@ CREATE TABLE `pwd_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pwd_tbl`
@@ -1421,7 +1420,7 @@ CREATE TABLE `reference_file_tbl` (
   `description` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `file` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reference_file_tbl`
@@ -1444,7 +1443,7 @@ CREATE TABLE `report` (
   `description` varchar(255) NOT NULL,
   `file` varchar(255) NOT NULL,
   `sender` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -1460,7 +1459,7 @@ CREATE TABLE `reports` (
   `date` date NOT NULL,
   `month` varchar(255) NOT NULL,
   `sender` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reports`
@@ -1505,7 +1504,7 @@ CREATE TABLE `residents_tbl` (
   `no_of_male` int(2) NOT NULL,
   `picture` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `residents_tbl`
@@ -2083,7 +2082,7 @@ CREATE TABLE `sc_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sc_tbl`
@@ -2111,7 +2110,7 @@ CREATE TABLE `sk_tbl` (
   `year` int(100) NOT NULL,
   `total_budget` decimal(10,2) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sk_tbl`
@@ -2147,15 +2146,15 @@ CREATE TABLE `user_account_tbl` (
   `status` varchar(100) NOT NULL,
   `brgy_name` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user_account_tbl`
 --
 
 INSERT INTO `user_account_tbl` (`id`, `brgy_id`, `username`, `password`, `email`, `contactno`, `registration_date`, `status`, `brgy_name`, `brgy_code`) VALUES
-(31, 190990, 'bucal1secretary', '$2y$10$9YoNJ7WmxxjX5CrpPfaTTeAHReB..Y/nYHvu6/ZnnhDkarVQjueqC', 'ericsonlimpasan@gmail.com', '09972816234', '2019-01-29', 'ACTIVE', 'Bucal 1', 'BC1'),
-(58, 991460, 'Tulaybsecretary', '$2y$10$AD8e4CLxyZQZYihusyrfb.rKRwyzY/DV9vXXJ8OGnmdd5q94uwlGi', 'jasmin.lagura18@gmail.com', '09177111418', '2019-03-07', 'ACTIVE', 'Tulay Silangan', 'TSM'),
+(31, 190990, 'bucal1secretary', '$2a$12$aGYbPL6qEf7EIpTyWhmY3.yu0S2OYRKRy9ZNjPpZ.NiXZ1ft5Wmzq', 'ericsonlimpasan@gmail.com', '09972816234', '2019-01-29', 'ACTIVE', 'Bucal 1', 'BC1'),
+(58, 991460, 'Tulaybsecretary', '$2a$12$KfTROeThLVKsHyCF7YkbueyFrV59Wy3Iir6uVVMzh3jiCGUBRWFlq', 'jasmin.lagura18@gmail.com', '09177111418', '2019-03-07', 'ACTIVE', 'Tulay Silangan', 'TSM'),
 (72, 122499, 'Bucal2sekratari', '$2y$10$No3LpVC6apTlxp8o8gzvf..uu/ZcdMEHYfPuDW5.YCaEmwtTqtLYW', 'Dantegulapa2019@gmail.com', '09972616235', '2019-03-29', 'ACTIVE', 'Bucal 2', 'BC2'),
 (73, 138329, 'bucal3Asecretary', '$2y$10$YDWTMdkG3LKta5AS3ddmd.AGAMLRJObxYfTTKKVQqoSoVdTL8FfSS', 'OBISDILG@gmail.com', '09353075820', '2019-04-02', 'ACTIVE', 'Bucal 3A', 'BC3A'),
 (74, 231339, 'bucal3Bsecretary', '$2y$10$z32WNRI4.X2yfr7Q8634rOVJVdV9EOnp6EZh6Vs/2DU/AurwqjgHa', 'psymonasegurado@gmail.com', '09156530670', '2019-04-02', 'ACTIVE', 'Bucal 3B', 'BC3B'),

@@ -66,7 +66,7 @@ include "include/admin/header.php";
                             <button class="btn btn-primary" id="filterButton">Filter</button>
                         </div>  
                     </div>
-                <div class="row">
+                    <div class="row my-5">
                         <div class="col-6">
                             <div style="display: flex; justify-content: space-between">                        
                                 <canvas id="chart1" style="width: 200px; height: 150px;"></canvas>
@@ -78,9 +78,40 @@ include "include/admin/header.php";
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row my-5">
+                        <div class="col-6">
+                            <div style="display: flex; justify-content: space-between">                        
+                                <canvas id="chart3" style="width: 200px; height: 150px;"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="display: flex; justify-content: space-between">                        
+                                <canvas id="chart4" style="width: 200px; height: 150px;"></canvas>
+                            </div>
+                        </div>
                         
-                    </div> -->
+                    </div>
+
+                    <div class="row">
+                        <div class=col-6>
+                            <label for="yearSelect">Year</label>
+                            <select id="yearSelect"></select>
+                            <button class="btn btn-primary" id="filterYearButton">Filter</button>
+                        </div>  
+                    </div>
+
+                    <div class="row my-5">
+                        <div class="col-6">
+                                <div style="display: flex; justify-content: space-between">                        
+                                    <canvas id="chart5" style="width: 200px; height: 150px;"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="display: flex; justify-content: space-between">                        
+                                    <canvas id="chart6" style="width: 200px; height: 150px;"></canvas>
+                                </div>
+                            </div>
+                    </div>
 
 					<!-- END DATA TABLE -->
 					<?php include "include/admin/footer2.php"; ?>
@@ -150,6 +181,90 @@ include "include/admin/header.php";
             }
         });
 
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        const chart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: []
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'BDRRMF(A) Chart',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctx4 = document.getElementById('chart4').getContext('2d');
+        const chart4 = new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: []
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'BDRRMF(B) Chart',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctx5 = document.getElementById('chart5').getContext('2d');
+        const chart5 = new Chart(ctx5, {
+            type: 'pie',
+            data: {},
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'KP Bucal2 C1',
+                        font: {
+                                size: 16
+                            }
+                    }
+                }
+            }
+        });
+
+        const ctx6 = document.getElementById('chart6').getContext('2d');
+        const chart6 = new Chart(ctx6, {
+            type: 'pie',
+            data: {},
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'KP Bucal2 C2',
+                        font: {
+                                size: 16
+                            }
+                    }
+                }
+            }
+        });
+
         // Fetch data for a specific chart
         function fetchData(chart, url) {
             const xhr = new XMLHttpRequest();
@@ -189,6 +304,10 @@ include "include/admin/header.php";
                         
                         fetchData(chart1, `charts/fetchBCPC.php?brgyCode=${brgyCodes[0]}`);
                         fetchData(chart2, `charts/fetchBDF.php?brgyCode=${brgyCodes[0]}`);
+                        fetchData(chart3, `charts/fetch_bdrrmf_a_tbl.php?brgyCode=${brgyCodes[0]}`);
+                        fetchData(chart4, `charts/fetch_bdrrmf_b_tbl.php?brgyCode=${brgyCodes[0]}`);
+                        fetchData(chart5, `charts/fetch_kp_bucal2_tbl_c1.php?brgyCode=${brgyCodes[0]}&year=${yearSelect.value}`);
+                        fetchData(chart6, `charts/fetch_kp_bucal2_tbl_c2.php?brgyCode=${brgyCodes[0]}&year=${yearSelect.value}`);
                     }
                 }
             };
@@ -201,6 +320,31 @@ include "include/admin/header.php";
             const brgyCode = document.getElementById('brgyCodeSelect').value;
             fetchData(chart1, `charts/fetchBCPC.php?brgyCode=${brgyCode}`);
             fetchData(chart2, `charts/fetchBDF.php?brgyCode=${brgyCode}`);
+            fetchData(chart3, `charts/fetch_bdrrmf_a_tbl.php?brgyCode=${brgyCode}`);
+            fetchData(chart4, `charts/fetch_bdrrmf_b_tbl.php?brgyCode=${brgyCode}`);
+            fetchData(chart5, `charts/fetch_kp_bucal2_tbl_c1.php?brgyCode=${brgyCodes[0]}&year=${yearSelect.value}`);
+            fetchData(chart6, `charts/fetch_kp_bucal2_tbl_c2.php?brgyCode=${brgyCodes[0]}&year=${yearSelect.value}`);
+        });
+
+        const yearSelect = document.getElementById('yearSelect');
+        var currentYear = new Date().getFullYear();
+
+        // Set the range of years you want to populate
+        var startYear = 1900; // Change this to the desired starting year
+        var endYear = currentYear; // Change this to the desired ending year
+
+        // Iterate through the range of years and create options
+        for (var year = endYear; year >= startYear; year--) {
+            var option = document.createElement('option');
+            option.text = year;
+            option.value = year;
+            yearSelect.add(option);
+        }
+
+        document.getElementById('filterYearButton').addEventListener('click', function () { 
+            const brgyCode = document.getElementById('brgyCodeSelect').value;           
+            fetchData(chart5, `charts/fetch_kp_bucal2_tbl_c1.php?brgyCode=${brgyCode}&year=${yearSelect.value}`);
+            fetchData(chart6, `charts/fetch_kp_bucal2_tbl_c2.php?brgyCode=${brgyCode}&year=${yearSelect.value}`);
         });
 
         // Load the initial data

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2019 at 08:06 AM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: May 29, 2023 at 03:56 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `abkd_bucal2_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `abkd_bucal2_tbl` (
+CREATE TABLE `abkd_bucal2_tbl` (
   `id` int(255) NOT NULL,
   `quarter` varchar(100) NOT NULL,
   `ordinance(b1)` varchar(100) NOT NULL,
@@ -40,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `abkd_bucal2_tbl` (
   `remarks` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `abkd_bucal2_tbl`
@@ -66,7 +67,7 @@ INSERT INTO `abkd_bucal2_tbl` (`id`, `quarter`, `ordinance(b1)`, `fund_allocatio
 -- Table structure for table `admin_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_tbl` (
+CREATE TABLE `admin_tbl` (
   `id` int(100) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -75,14 +76,14 @@ CREATE TABLE IF NOT EXISTS `admin_tbl` (
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin_tbl`
 --
 
 INSERT INTO `admin_tbl` (`id`, `first_name`, `last_name`, `middle_name`, `email`, `username`, `password`, `token`) VALUES
-(1, 'Ericson', 'Limpasan', 'M', 'ericsonlimpasan@gmail.com', 'admininobis', '$2y$10$lPfqzV39iKxRmlKwipPC6OAwyOULkjl3tiy/WVrUmp5xgn/jYGMm.', '');
+(1, 'Ericson', 'Limpasan', 'M', 'ericsonlimpasan@gmail.com', 'admininobis', '$2a$12$qSRdqaEN2ex.jDD1jnyi1.gWhsSDERy4Wo50UdDfy.QQmdsLhp0Ny', '');
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ INSERT INTO `admin_tbl` (`id`, `first_name`, `last_name`, `middle_name`, `email`
 -- Table structure for table `bcpc_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `bcpc_tbl` (
+CREATE TABLE `bcpc_tbl` (
   `id` int(255) NOT NULL,
   `aipcode` varchar(255) NOT NULL,
   `program` varchar(255) NOT NULL,
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `bcpc_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bcpc_tbl`
@@ -109,10 +110,10 @@ CREATE TABLE IF NOT EXISTS `bcpc_tbl` (
 
 INSERT INTO `bcpc_tbl` (`id`, `aipcode`, `program`, `implemetingoffice`, `quarter1`, `quarter2`, `quarter3`, `quarter4`, `year`, `brgy_code`) VALUES
 (1, 'fb', 'abafb', 'bsbfa', '221.00', '121.00', '121.00', '212.00', 2019, 'BC1'),
-(2, '', '', 'pwd of bucal2', '222.00', '1.00', '333.00', '5.00', 2019, 'BC2'),
-(3, '333333', 'grwbbreb', 'bwrbrwbrwb', '1.00', '2.00', '3.00', '5.00', 2019, 'BC2'),
-(5, '333333', 'vfv3r', 'v3v', '3.00', '2.00', '1.00', '0.00', 2019, 'BC1'),
-(6, 'test1ok', '', '', '100.00', '0.00', '0.00', '0.00', 2019, 'BC2'),
+(2, '', '', 'pwd of bucal2', '222.00', '1.00', '333.00', '5.00', 2020, 'BC2'),
+(3, '333333', 'grwbbreb', 'bwrbrwbrwb', '1.00', '2.00', '3.00', '5.00', 2021, 'BC2'),
+(5, '333333', 'vfv3r', 'v3v', '3.00', '2.00', '1.00', '0.00', 2022, 'BC1'),
+(6, 'test1ok', '', '', '100.00', '0.00', '0.00', '0.00', 2023, 'BC2'),
 (7, 'test2ko', '', '', '0.00', '0.00', '200.00', '0.00', 2019, 'BC2');
 
 -- --------------------------------------------------------
@@ -121,7 +122,7 @@ INSERT INTO `bcpc_tbl` (`id`, `aipcode`, `program`, `implemetingoffice`, `quarte
 -- Table structure for table `bdf_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `bdf_tbl` (
+CREATE TABLE `bdf_tbl` (
   `id` int(255) NOT NULL,
   `aip` varchar(100) NOT NULL,
   `program` varchar(100) NOT NULL,
@@ -138,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `bdf_tbl` (
   `climatemitigation` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdf_tbl`
@@ -147,12 +148,12 @@ CREATE TABLE IF NOT EXISTS `bdf_tbl` (
 INSERT INTO `bdf_tbl` (`id`, `aip`, `program`, `implemetationoffice`, `sdate`, `cdate`, `ExpectedOutput`, `FundingSource`, `ps`, `mooe`, `capital`, `total`, `climateadapt`, `climatemitigation`, `year`, `brgy_code`) VALUES
 (1, 'Social Services (3000)', '- Construction/ Improvement/ Rehabilitation of Multi-Purpose Hall', 'SB', 'JAN', 'DEC', 'Comfortable multi-purpose hall', '20% BDF', '0.00', '55000.00', '0.00', '55000.00', 'A424-03', '', 2019, 'BC2'),
 (2, 'Social Services (4000)', '- Maintenance of CCTV Camera', 'SB', 'JAN', 'DEC', 'Comfortable multi-purpose hall', '20% BDF', '0.00', '55000.00', '0.00', '55000.00', 'A424-03', '', 2019, 'BC2'),
-(4, 'Economic Services (8000)', 'Livelihood Program/ Candle making and other related products', 'SB', 'JAN', 'DEC', 'Additional income to help them up post their everyday living', '20% BDF', '0.00', '10.00', '0.00', '10.00', 'A4AAAA', 'A4BBBB', 2019, 'BC2'),
-(5, 'Other Services (9000)', 'Maintenance of cleanliness of the Barangay / Waste Segregation', 'SB', 'JAN', 'DEC', 'Maintained cleanliness', '20% BDF', '0.00', '40000.00', '0.00', '40000.00', '', '', 2019, 'BC2'),
-(7, 'Other Services (9000)', 'Implementation of flood control project such as de-clogging of canal', 'SB', 'JAN', 'DEC', 'Flood Free barangay', '20% BDF', '0.00', '60000.00', '0.00', '60000.00', 'A221-01', 'A221-01', 2019, 'BC2'),
+(4, 'Economic Services (8000)', 'Livelihood Program/ Candle making and other related products', 'SB', 'JAN', 'DEC', 'Additional income to help them up post their everyday living', '20% BDF', '0.00', '10.00', '0.00', '10.00', 'A4AAAA', 'A4BBBB', 2021, 'BC1'),
+(5, 'Other Services (9000)', 'Maintenance of cleanliness of the Barangay / Waste Segregation', 'SB', 'JAN', 'DEC', 'Maintained cleanliness', '20% BDF', '0.00', '40000.00', '0.00', '40000.00', '', '', 2021, 'BC2'),
+(7, 'Other Services (9000)', 'Implementation of flood control project such as de-clogging of canal', 'SB', 'JAN', 'DEC', 'Flood Free barangay', '20% BDF', '0.00', '60000.00', '0.00', '60000.00', 'A221-01', 'A221-01', 2020, 'BC2'),
 (8, 'AS@ghhg', 'egewgwewe', 'bwebe', '', '', '', '', '0.00', '0.00', '0.00', '0.00', '', '', 2019, 'BC1'),
 (9, 'AS@ghhg', 'egewgwewe', 'bwrbrwbrwb', 'bsdbsd', '', '', '', '0.00', '0.00', '0.00', '0.00', '', '', 2019, 'BC1'),
-(10, 'Social Services (3000)', ' CCTV Camera', 'SB', 'JAN', 'OCT', 'multi-purpose hall', '20% BDF', '0.00', '0.00', '0.00', '0.00', 'test1', 'test1ok', 2019, 'BC2');
+(10, 'Social Services (3000)', ' CCTV Camera', 'SB', 'JAN', 'OCT', 'multi-purpose hall', '20% BDF', '0.00', '0.00', '0.00', '0.00', 'test1', 'test1ok', 2020, 'BC1');
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,7 @@ INSERT INTO `bdf_tbl` (`id`, `aip`, `program`, `implemetationoffice`, `sdate`, `
 -- Table structure for table `bdrrmf_a_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `bdrrmf_a_tbl` (
+CREATE TABLE `bdrrmf_a_tbl` (
   `id` int(255) NOT NULL,
   `aipcode` varchar(100) NOT NULL,
   `program` varchar(100) NOT NULL,
@@ -175,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `bdrrmf_a_tbl` (
   `totalbudgetallocation` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdrrmf_a_tbl`
@@ -183,9 +184,9 @@ CREATE TABLE IF NOT EXISTS `bdrrmf_a_tbl` (
 
 INSERT INTO `bdrrmf_a_tbl` (`id`, `aipcode`, `program`, `implementoffice`, `starteddate`, `completiondate`, `expectedoutput`, `fundsource`, `personalservice`, `mooe`, `capital`, `totalbudgetallocation`, `year`, `brgy_code`) VALUES
 (2, '', 'Seminar/ Training', 'SB', 'JAN', 'NOV', 'Trained Officials', '5% BDRRMF', '100.50', '0.00', '0.00', '57531.70', 2019, ''),
-(3, 'test2ok', 'Seminar/ Training', 'SB', 'JAN', 'JAN', 'Trained Officials', '5% BDRRMF', '12500.00', '0.00', '0.00', '57531.70', 2019, 'BC2'),
-(4, 'Social Services (3000)', 'test1', 'SB', '', '', '', '', '0.00', '0.00', '100.00', '1000.00', 2019, 'BC2'),
-(5, 'Social Services (3000)test1', ' CCTV Camera', 'test1ok', 'JAN', 'OCT', '', '', '0.00', '0.00', '0.00', '1000.00', 2019, 'BC2');
+(3, 'test2ok', 'Seminar/ Training', 'SB', 'JAN', 'JAN', 'Trained Officials', '5% BDRRMF', '12500.00', '0.00', '0.00', '57531.70', 2019, 'BC1'),
+(4, 'Social Services (3000)', 'test1', 'SB', '', '', '', '', '0.00', '0.00', '100.00', '1000.00', 2019, 'BC1'),
+(5, 'Social Services (3000)test1', ' CCTV Camera', 'test1ok', 'JAN', 'OCT', '', '', '0.00', '0.00', '0.00', '1000.00', 2019, 'BC1');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,7 @@ INSERT INTO `bdrrmf_a_tbl` (`id`, `aipcode`, `program`, `implementoffice`, `star
 -- Table structure for table `bdrrmf_b_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `bdrrmf_b_tbl` (
+CREATE TABLE `bdrrmf_b_tbl` (
   `id` int(255) NOT NULL,
   `aipcode` varchar(100) NOT NULL,
   `program` varchar(100) NOT NULL,
@@ -208,15 +209,15 @@ CREATE TABLE IF NOT EXISTS `bdrrmf_b_tbl` (
   `totalbudgetallocation` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bdrrmf_b_tbl`
 --
 
 INSERT INTO `bdrrmf_b_tbl` (`id`, `aipcode`, `program`, `implementoffice`, `starteddate`, `completiondate`, `expectedoutput`, `fundsource`, `personalservice`, `mooe`, `capital`, `totalbudgetallocation`, `year`, `brgy_code`) VALUES
-(1, '1000 AIP', 'Medical Assistance Program', '', '', '', 'Provide medical assistance during calamity', '5% BDRRMF', '10000.00', '0.00', '15000.00', '24188.15', 2019, 'BC2'),
-(2, 'test2', 'secondtest', '', '', '', '', '20% BDF ok', '0.00', '0.00', '0.00', '0.00', 2019, 'BC2');
+(1, '1000 AIP', 'Medical Assistance Program', '', '', '', 'Provide medical assistance during calamity', '5% BDRRMF', '10000.00', '0.00', '15000.00', '24188.15', 2019, 'BC1'),
+(2, 'test2', 'secondtest', '', '', '', '', '20% BDF ok', '0.00', '0.00', '0.00', '0.00', 2019, 'BC1');
 
 -- --------------------------------------------------------
 
@@ -224,7 +225,7 @@ INSERT INTO `bdrrmf_b_tbl` (`id`, `aipcode`, `program`, `implementoffice`, `star
 -- Table structure for table `brgy_bucal1_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `brgy_bucal1_tbl` (
+CREATE TABLE `brgy_bucal1_tbl` (
   `brgy_id` int(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -245,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `brgy_bucal1_tbl` (
   `barangay` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -253,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `brgy_bucal1_tbl` (
 -- Table structure for table `brgy_bucal2_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `brgy_bucal2_tbl` (
+CREATE TABLE `brgy_bucal2_tbl` (
   `brgy_id` varchar(255) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -274,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `brgy_bucal2_tbl` (
   `barangay` varchar(255) NOT NULL,
   `position` varchar(100) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_bucal2_tbl`
@@ -310,12 +311,12 @@ INSERT INTO `brgy_bucal2_tbl` (`brgy_id`, `first_name`, `last_name`, `middle_nam
 -- Table structure for table `brgy_code_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `brgy_code_tbl` (
+CREATE TABLE `brgy_code_tbl` (
   `id` int(100) NOT NULL,
   `brgy_name` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brgy_code_tbl`
@@ -356,7 +357,7 @@ INSERT INTO `brgy_code_tbl` (`id`, `brgy_name`, `address`, `brgy_code`) VALUES
 -- Table structure for table `cms_table`
 --
 
-CREATE TABLE IF NOT EXISTS `cms_table` (
+CREATE TABLE `cms_table` (
   `id` int(255) NOT NULL,
   `title` varchar(100) NOT NULL,
   `author` varchar(100) NOT NULL,
@@ -364,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `cms_table` (
   `content1` text NOT NULL,
   `content2` text NOT NULL,
   `image` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cms_table`
@@ -380,7 +381,7 @@ INSERT INTO `cms_table` (`id`, `title`, `author`, `published_date`, `content1`, 
 -- Table structure for table `gad_a_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `gad_a_tbl` (
+CREATE TABLE `gad_a_tbl` (
   `id` int(11) NOT NULL,
   `gadissue` int(11) NOT NULL,
   `program` int(11) NOT NULL,
@@ -390,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `gad_a_tbl` (
   `gadexpenditure` int(11) NOT NULL,
   `remarks` int(11) NOT NULL,
   `year` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -398,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `gad_a_tbl` (
 -- Table structure for table `kp_bucal2_tbl_c1`
 --
 
-CREATE TABLE IF NOT EXISTS `kp_bucal2_tbl_c1` (
+CREATE TABLE `kp_bucal2_tbl_c1` (
   `id` int(255) NOT NULL,
   `criminal(2a.1)` varchar(100) NOT NULL,
   `civil(2a.2)` varchar(100) NOT NULL,
@@ -419,17 +420,15 @@ CREATE TABLE IF NOT EXISTS `kp_bucal2_tbl_c1` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kp_bucal2_tbl_c1`
 --
 
 INSERT INTO `kp_bucal2_tbl_c1` (`id`, `criminal(2a.1)`, `civil(2a.2)`, `others(2a.3)`, `totals(2a.4)`, `mediation_(2b.1)`, `concillation_(2b.2)`, `arbitrition_(2b.3)`, `total_(2b.4)`, `repudiated_cases_(2c.1)`, `withdrawn_cases_(2c.2)`, `pending_cases_(2c.3)`, `dismissed_cases_(2c.4)`, `certified_cases_(2c.5)`, `reffered_agencies_(2c.6)`, `total_(2c.7)`, `estimated_savings`, `month`, `year`, `brgy_code`) VALUES
-(5, '1', '2', '3', '4', '5', '6', '7', '8', '9', '', '', '', '', '', '', '', 'February', '2019', ''),
-(6, '111', '111', '111', '111', '111', '111', '', '', '', '', '', '', '', '', '', '', 'December', '2019', ''),
-(7, 'test1test1ok', 'test1ok', 'test1ok', 'test1ok', 'test1ok', '', '', '', '', '', '', '', '', '', '', '', 'January', '2019', 'BC2'),
-(8, '', '', '', '', '', '', 'test1ok', 'test1ok', 'test1ok', 'test1ok', 'test1ok', '', '', '', '', '', 'February', '2019', 'BC2');
+(5, '1', '2', '3', '4', '5', '6', '7', '8', '9', '', '', '', '', '', '', '', 'February', '2020', 'BC2'),
+(6, '100', '111', '75', '111', '111', '90', '', '', '', '', '', '', '', '', '', '', 'December', '2019', 'BC1');
 
 -- --------------------------------------------------------
 
@@ -437,7 +436,7 @@ INSERT INTO `kp_bucal2_tbl_c1` (`id`, `criminal(2a.1)`, `civil(2a.2)`, `others(2
 -- Table structure for table `kp_bucal2_tbl_c2`
 --
 
-CREATE TABLE IF NOT EXISTS `kp_bucal2_tbl_c2` (
+CREATE TABLE `kp_bucal2_tbl_c2` (
   `id` int(255) NOT NULL,
   `physical_abuse` varchar(100) NOT NULL,
   `sexual_abuse` varchar(100) NOT NULL,
@@ -457,18 +456,16 @@ CREATE TABLE IF NOT EXISTS `kp_bucal2_tbl_c2` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kp_bucal2_tbl_c2`
 --
 
 INSERT INTO `kp_bucal2_tbl_c2` (`id`, `physical_abuse`, `sexual_abuse`, `physcological_abuse`, `economic_abuse`, `total`, `refferred_dswdo`, `refferred_pnp`, `refferred_court`, `issued_bpo`, `refferred_medical`, `total_vawc_case`, `training`, `iec`, `funds_allocated`, `funds_remarks`, `month`, `year`, `brgy_code`) VALUES
-(1, '3', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', 'December', '2019', ''),
-(3, '33', '32', '31', '', '', '', '', '', '', '', '', '', '', '', '', 'February', '2019', ''),
-(4, '12', '12', '12', '12', '55', '23', '23', '23', '23', '23', '23', '33', '33', '33', '33', 'February', '2019', 'BC2'),
-(5, 'test2ok', 'test2ok', 'test2ok', 'test2ok', 'test2ok', 'test2ok', '', '', '', '', '', '', '', '', '', 'March', '2019', 'BC2'),
-(6, '', '', '', '', '', '', 'test2ok', 'test2ok', 'test2ok', 'test2ok', 'test2ok', 'test2ok', 'test2ok', '', '', 'April', '2019', 'BC2');
+(1, '3', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', 'December', '2019', 'BC2'),
+(3, '33', '32', '31', '', '', '', '', '', '', '', '', '', '', '', '', 'February', '2019', 'BC2'),
+(4, '12', '12', '12', '12', '55', '23', '23', '23', '23', '23', '23', '33', '33', '33', '33', 'February', '2020', 'BC2');
 
 -- --------------------------------------------------------
 
@@ -476,7 +473,7 @@ INSERT INTO `kp_bucal2_tbl_c2` (`id`, `physical_abuse`, `sexual_abuse`, `physcol
 -- Table structure for table `monthly_p1_bucal2_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `monthly_p1_bucal2_tbl` (
+CREATE TABLE `monthly_p1_bucal2_tbl` (
   `id` int(255) NOT NULL,
   `description` varchar(100) NOT NULL,
   `on_going_status` varchar(100) NOT NULL,
@@ -489,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `monthly_p1_bucal2_tbl` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p1_bucal2_tbl`
@@ -509,7 +506,7 @@ INSERT INTO `monthly_p1_bucal2_tbl` (`id`, `description`, `on_going_status`, `co
 -- Table structure for table `monthly_p2_bucal2_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `monthly_p2_bucal2_tbl` (
+CREATE TABLE `monthly_p2_bucal2_tbl` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `order_no` varchar(100) NOT NULL,
@@ -523,7 +520,7 @@ CREATE TABLE IF NOT EXISTS `monthly_p2_bucal2_tbl` (
   `month` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p2_bucal2_tbl`
@@ -542,7 +539,7 @@ INSERT INTO `monthly_p2_bucal2_tbl` (`id`, `title`, `order_no`, `description`, `
 -- Table structure for table `monthly_p3_bucal2_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `monthly_p3_bucal2_tbl` (
+CREATE TABLE `monthly_p3_bucal2_tbl` (
   `id` int(255) NOT NULL,
   `dispute` varchar(100) NOT NULL,
   `filed` int(100) NOT NULL,
@@ -552,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `monthly_p3_bucal2_tbl` (
   `monthly` varchar(100) NOT NULL,
   `year` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `monthly_p3_bucal2_tbl`
@@ -572,7 +569,7 @@ INSERT INTO `monthly_p3_bucal2_tbl` (`id`, `dispute`, `filed`, `settled`, `reffe
 -- Table structure for table `pdp_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `pdp_tbl` (
+CREATE TABLE `pdp_tbl` (
   `id` int(255) NOT NULL,
   `aip_reference` varchar(100) NOT NULL,
   `program_project` varchar(255) NOT NULL,
@@ -580,7 +577,7 @@ CREATE TABLE IF NOT EXISTS `pdp_tbl` (
   `amount` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pdp_tbl`
@@ -598,7 +595,7 @@ INSERT INTO `pdp_tbl` (`id`, `aip_reference`, `program_project`, `funding`, `amo
 -- Table structure for table `pops_a_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `pops_a_tbl` (
+CREATE TABLE `pops_a_tbl` (
   `id` int(255) NOT NULL,
   `ppsa` varchar(255) NOT NULL,
   `ImplementingOffice` varchar(255) NOT NULL,
@@ -613,7 +610,7 @@ CREATE TABLE IF NOT EXISTS `pops_a_tbl` (
   `title` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pops_a_tbl`
@@ -635,7 +632,7 @@ INSERT INTO `pops_a_tbl` (`id`, `ppsa`, `ImplementingOffice`, `Started`, `Comple
 -- Table structure for table `pops_b_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `pops_b_tbl` (
+CREATE TABLE `pops_b_tbl` (
   `id` int(255) NOT NULL,
   `ppsa` varchar(255) NOT NULL,
   `ImplementingOffice` varchar(255) NOT NULL,
@@ -650,7 +647,7 @@ CREATE TABLE IF NOT EXISTS `pops_b_tbl` (
   `title` varchar(100) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pops_b_tbl`
@@ -668,7 +665,7 @@ INSERT INTO `pops_b_tbl` (`id`, `ppsa`, `ImplementingOffice`, `Started`, `Comple
 -- Table structure for table `pwd_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `pwd_tbl` (
+CREATE TABLE `pwd_tbl` (
   `id` int(255) NOT NULL,
   `aipcode` varchar(255) NOT NULL,
   `program` varchar(255) NOT NULL,
@@ -679,7 +676,7 @@ CREATE TABLE IF NOT EXISTS `pwd_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pwd_tbl`
@@ -700,13 +697,13 @@ INSERT INTO `pwd_tbl` (`id`, `aipcode`, `program`, `implemetingoffice`, `quarter
 -- Table structure for table `reference_file_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `reference_file_tbl` (
+CREATE TABLE `reference_file_tbl` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `file` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -714,7 +711,7 @@ CREATE TABLE IF NOT EXISTS `reference_file_tbl` (
 -- Table structure for table `report`
 --
 
-CREATE TABLE IF NOT EXISTS `report` (
+CREATE TABLE `report` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `date` date NOT NULL,
@@ -722,7 +719,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   `description` varchar(255) NOT NULL,
   `file` varchar(255) NOT NULL,
   `sender` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -730,7 +727,7 @@ CREATE TABLE IF NOT EXISTS `report` (
 -- Table structure for table `reports`
 --
 
-CREATE TABLE IF NOT EXISTS `reports` (
+CREATE TABLE `reports` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -738,7 +735,7 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `date` date NOT NULL,
   `month` varchar(255) NOT NULL,
   `sender` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `reports`
@@ -756,7 +753,7 @@ INSERT INTO `reports` (`id`, `title`, `description`, `file`, `date`, `month`, `s
 -- Table structure for table `residents_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `residents_tbl` (
+CREATE TABLE `residents_tbl` (
   `id` int(255) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -768,7 +765,7 @@ CREATE TABLE IF NOT EXISTS `residents_tbl` (
   `religion` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `residents_tbl`
@@ -809,7 +806,7 @@ INSERT INTO `residents_tbl` (`id`, `first_name`, `last_name`, `middle_name`, `ge
 -- Table structure for table `sc_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `sc_tbl` (
+CREATE TABLE `sc_tbl` (
   `id` int(255) NOT NULL,
   `aipcode` varchar(255) NOT NULL,
   `program` varchar(255) NOT NULL,
@@ -820,7 +817,7 @@ CREATE TABLE IF NOT EXISTS `sc_tbl` (
   `quarter4` decimal(10,2) NOT NULL,
   `year` int(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sc_tbl`
@@ -839,7 +836,7 @@ INSERT INTO `sc_tbl` (`id`, `aipcode`, `program`, `implemetingoffice`, `quarter1
 -- Table structure for table `sk_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `sk_tbl` (
+CREATE TABLE `sk_tbl` (
   `id` int(255) NOT NULL,
   `gap_issues` varchar(255) NOT NULL,
   `p_a_d` varchar(255) NOT NULL,
@@ -850,7 +847,7 @@ CREATE TABLE IF NOT EXISTS `sk_tbl` (
   `year` int(100) NOT NULL,
   `total_budget` decimal(10,2) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sk_tbl`
@@ -868,7 +865,7 @@ INSERT INTO `sk_tbl` (`id`, `gap_issues`, `p_a_d`, `result_target`, `amount`, `s
 -- Table structure for table `user_account_tbl`
 --
 
-CREATE TABLE IF NOT EXISTS `user_account_tbl` (
+CREATE TABLE `user_account_tbl` (
   `id` int(100) NOT NULL,
   `brgy_id` int(100) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -879,7 +876,7 @@ CREATE TABLE IF NOT EXISTS `user_account_tbl` (
   `status` varchar(100) NOT NULL,
   `brgy_name` varchar(100) NOT NULL,
   `brgy_code` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user_account_tbl`
@@ -1063,127 +1060,153 @@ ALTER TABLE `user_account_tbl`
 -- AUTO_INCREMENT for table `abkd_bucal2_tbl`
 --
 ALTER TABLE `abkd_bucal2_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
 --
 -- AUTO_INCREMENT for table `admin_tbl`
 --
 ALTER TABLE `admin_tbl`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `bcpc_tbl`
 --
 ALTER TABLE `bcpc_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `bdf_tbl`
 --
 ALTER TABLE `bdf_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `bdrrmf_a_tbl`
 --
 ALTER TABLE `bdrrmf_a_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `bdrrmf_b_tbl`
 --
 ALTER TABLE `bdrrmf_b_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `brgy_code_tbl`
 --
 ALTER TABLE `brgy_code_tbl`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
 -- AUTO_INCREMENT for table `cms_table`
 --
 ALTER TABLE `cms_table`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `gad_a_tbl`
 --
 ALTER TABLE `gad_a_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `kp_bucal2_tbl_c1`
 --
 ALTER TABLE `kp_bucal2_tbl_c1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `kp_bucal2_tbl_c2`
 --
 ALTER TABLE `kp_bucal2_tbl_c2`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `monthly_p1_bucal2_tbl`
 --
 ALTER TABLE `monthly_p1_bucal2_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `monthly_p2_bucal2_tbl`
 --
 ALTER TABLE `monthly_p2_bucal2_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `monthly_p3_bucal2_tbl`
 --
 ALTER TABLE `monthly_p3_bucal2_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `pdp_tbl`
 --
 ALTER TABLE `pdp_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `pops_a_tbl`
 --
 ALTER TABLE `pops_a_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `pops_b_tbl`
 --
 ALTER TABLE `pops_b_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `pwd_tbl`
 --
 ALTER TABLE `pwd_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `reference_file_tbl`
 --
 ALTER TABLE `reference_file_tbl`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `residents_tbl`
 --
 ALTER TABLE `residents_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
 --
 -- AUTO_INCREMENT for table `sc_tbl`
 --
 ALTER TABLE `sc_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `sk_tbl`
 --
 ALTER TABLE `sk_tbl`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `user_account_tbl`
 --
 ALTER TABLE `user_account_tbl`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
